@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+//INCLUDES DE LOS .h=============
+#include "crearpendiente.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,10 +20,10 @@ public:
     ~MainWindow();
 
 private slots:
-
-    void on_pushButton_clicked();
+    void on_botonCrear_clicked();
 
 private:
     Ui::MainWindow *ui;
+    crearPendiente *crear;
 };
 #endif // MAINWINDOW_H

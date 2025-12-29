@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>599</width>
-    <height>211</height>
+    <height>176</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Menu</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="tituloMain">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -33,7 +33,7 @@
      <string>Organizador de pendientes</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="botonCrear">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -54,7 +54,7 @@
      <string>Crear pendiente</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="botonLeer">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -75,7 +75,7 @@
      <string>Leer pendientes</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="botonCambiar">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -96,7 +96,7 @@
      <string>Cambiar estado</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="botonEliminar">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -118,23 +118,6 @@
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>599</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuCaja_Registradora">
-    <property name="title">
-     <string>Pendientes</string>
-    </property>
-   </widget>
-   <addaction name="menuCaja_Registradora"/>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-//mis includes
+//MIS INCLUDES==================================
 #include<qmessagebox.h>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -15,8 +15,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-    QMessageBox::information(this,"saludaso","hola chucha");
+void MainWindow::on_botonCrear_clicked(){
+    crear = new crearPendiente(this);
+    crear->show();
 }
-
