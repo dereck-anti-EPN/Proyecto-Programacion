@@ -3,6 +3,16 @@
 
 #include <QDialog>
 
+//MIS INCLUDES=============================
+#include <QString>
+
+struct pendientesStruct{
+    QString responsable;
+    int id;
+    QString descripcion;
+    QString estado;
+};
+
 namespace Ui {
 class crearPendiente;
 }
@@ -15,12 +25,14 @@ public:
     explicit crearPendiente(QWidget *parent = nullptr);
     ~crearPendiente();
 
+signals:            //FUNCION DE EMITIR UNA SEÑAL Y QUE EL SLOT LO ACCIONE
+    void signalPendientes(pendientesStruct vainaVolatilPendiente);
+
 private slots:
     void on_botonGuardar_clicked();
 
 private:
     Ui::crearPendiente *ui;
-    //PONER MAS REFERENTE A LO QUE FALTA DE "AGREGAR"
     QString responsable;
     int id;
     QString descripcion;

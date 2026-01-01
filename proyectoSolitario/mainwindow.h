@@ -4,6 +4,10 @@
 #include <QMainWindow>
 //INCLUDES DE LOS .h=============
 #include "crearpendiente.h"
+#include <vector>
+#include "crearpendiente.h"
+
+using namespace std; //IMPORTANTISIMO======================================
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,14 +20,16 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private slots:
+private slots://ACA PONER LO QUE ACCIONE A LOS SIGNALS PONER SOLO CON NOMBRE DE "SLOT"
     void on_botonCrear_clicked();
+    void slotPendientes(pendientesStruct vainaVolatilPendiente); //ESTE SLOT ACCIONA LO DEL SIGNAL============
 
 private:
     Ui::MainWindow *ui;
     crearPendiente *crear;
+    vector<pendientesStruct> pendientesVector;
 };
 #endif // MAINWINDOW_H

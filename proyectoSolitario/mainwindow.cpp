@@ -17,5 +17,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_botonCrear_clicked(){
     crear = new crearPendiente(this);
+    connect(crear, &crearPendiente::signalPendientes,
+            this, &MainWindow::slotPendientes);
     crear->show();
+}
+
+void MainWindow::slotPendientes(pendientesStruct vainaVolatilPendiente)
+{
+    pendientesVector.push_back(vainaVolatilPendiente);
 }
