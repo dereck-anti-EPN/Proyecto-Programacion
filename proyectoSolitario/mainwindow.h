@@ -31,5 +31,8 @@ private:
     Ui::MainWindow *ui;
     crearPendiente *crear;
     vector<pendientesStruct> pendientesVector;
+
+    void guardarArchivo();
+    void cargarArchivo();
 };
 #endif // MAINWINDOW_H
