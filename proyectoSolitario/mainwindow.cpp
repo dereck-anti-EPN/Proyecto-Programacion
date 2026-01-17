@@ -73,7 +73,26 @@ void MainWindow::cargarArchivo()
     archivito.close();
 }
 
-void MainWindow::slotPendientes(pendientesStruct vainaVolatilPendiente) //AL FINAL DE TODO
+void MainWindow::on_botonLeer_clicked()
+{
+    leer = new leerPendientes(pendientesVector, this); // this = ventana padre
+    leer->show();
+}
+
+void MainWindow::on_botonCambiar_clicked()
+{
+    cambiar = new cambiarPendiente(this);
+    cambiar->show();
+}
+
+void MainWindow::on_botonEliminar_clicked()
+{
+    eliminar = new eliminarPendiente(this);
+    eliminar->show();
+}
+
+//AL FINAL DE TODO===================================================
+void MainWindow::slotPendientes(pendientesStruct vainaVolatilPendiente)
 {
     pendientesVector.push_back(vainaVolatilPendiente); //GUARDADITO EN EL VECTOR e.e
     guardarArchivo();   //SE LLAMA A LA FUNCION DE ARRIBITA

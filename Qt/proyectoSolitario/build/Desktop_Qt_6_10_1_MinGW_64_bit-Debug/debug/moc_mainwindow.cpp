@@ -43,7 +43,10 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "",
         "slotPendientes",
         "pendientesStruct",
-        "vainaVolatilPendiente"
+        "vainaVolatilPendiente",
+        "on_botonLeer_clicked",
+        "on_botonCambiar_clicked",
+        "on_botonEliminar_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -53,6 +56,12 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void(pendientesStruct)>(3, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { 0x80000000 | 4, 5 },
         }}),
+        // Slot 'on_botonLeer_clicked'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_botonCambiar_clicked'
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_botonEliminar_clicked'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -78,6 +87,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->on_botonCrear_clicked(); break;
         case 1: _t->slotPendientes((*reinterpret_cast<std::add_pointer_t<pendientesStruct>>(_a[1]))); break;
+        case 2: _t->on_botonLeer_clicked(); break;
+        case 3: _t->on_botonCambiar_clicked(); break;
+        case 4: _t->on_botonEliminar_clicked(); break;
         default: ;
         }
     }
@@ -102,14 +114,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 5;
     }
     return _id;
 }

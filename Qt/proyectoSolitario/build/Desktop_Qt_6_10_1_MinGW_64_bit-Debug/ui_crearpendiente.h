@@ -10,6 +10,7 @@
 #define UI_CREARPENDIENTE_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
@@ -40,6 +41,8 @@ public:
         if (crearPendiente->objectName().isEmpty())
             crearPendiente->setObjectName("crearPendiente");
         crearPendiente->resize(393, 373);
+        QIcon icon(QIcon::fromTheme(QIcon::ThemeIcon::ContactNew));
+        crearPendiente->setWindowIcon(icon);
         label = new QLabel(crearPendiente);
         label->setObjectName("label");
         label->setGeometry(QRect(120, 0, 251, 41));
@@ -106,7 +109,7 @@ public:
 
     void retranslateUi(QDialog *crearPendiente)
     {
-        crearPendiente->setWindowTitle(QCoreApplication::translate("crearPendiente", "Dialog", nullptr));
+        crearPendiente->setWindowTitle(QCoreApplication::translate("crearPendiente", "Crear", nullptr));
         label->setText(QCoreApplication::translate("crearPendiente", "Crear pendiente", nullptr));
         label_2->setText(QCoreApplication::translate("crearPendiente", "ID [1-999]", nullptr));
         label_3->setText(QCoreApplication::translate("crearPendiente", "Descripcion", nullptr));
