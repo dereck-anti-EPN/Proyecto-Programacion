@@ -12,6 +12,7 @@ SOURCES += \
     cambiarpendiente.cpp \
     crearpendiente.cpp \
     eliminarpendiente.cpp \
+    filtrarpendiente.cpp \
     leerpendientes.cpp \
     main.cpp \
     mainwindow.cpp
@@ -20,6 +21,7 @@ HEADERS += \
     cambiarpendiente.h \
     crearpendiente.h \
     eliminarpendiente.h \
+    filtrarpendiente.h \
     leerpendientes.h \
     mainwindow.h
 
@@ -27,6 +29,7 @@ FORMS += \
     cambiarpendiente.ui \
     crearpendiente.ui \
     eliminarpendiente.ui \
+    filtrarpendiente.ui \
     leerpendientes.ui \
     mainwindow.ui
 

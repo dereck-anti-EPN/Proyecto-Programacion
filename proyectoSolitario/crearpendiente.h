@@ -22,7 +22,8 @@ class crearPendiente : public QDialog
     Q_OBJECT
 
 public:
-    explicit crearPendiente(QWidget *parent = nullptr);
+    explicit crearPendiente(const std::vector<pendientesStruct> &pendientes
+                            ,QWidget *parent = nullptr);
     ~crearPendiente();
 
 signals:            //FUNCION DE EMITIR UNA SEÑAL Y QUE EL SLOT LO ACCIONE
@@ -33,10 +34,7 @@ private slots:
 
 private:
     Ui::crearPendiente *ui;
-    QString responsable;
-    int id;
-    QString descripcion;
-    QString estado;
+    std::vector<pendientesStruct> pendientesVector;
 };
 
 #endif // CREARPENDIENTE_H

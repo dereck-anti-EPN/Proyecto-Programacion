@@ -1,5 +1,7 @@
 #include "mainwindow.h"
+#include "filtrarpendiente.h"
 #include "ui_mainwindow.h"
+
 //MIS INCLUDES==================================
 #include<qmessagebox.h> //pa las ventanas emergentes
 #include<QTextStream> //escribe y lee txt
@@ -20,13 +22,13 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::on_botonCrear_clicked(){
-    crear = new crearPendiente(this);
+    crear = new crearPendiente(pendientesVector, this);
     connect(crear, &crearPendiente::signalPendientes,
             this, &MainWindow::slotPendientes);
     crear->show();
 }
 
-void MainWindow::guardarArchivo()
+void MainWindow::guardarArchivo() //funcion para guardar el archivo
 {
     QFile archivito("pendientes.txt");
     if (!archivito.open(QIODevice::WriteOnly | QIODevice::Text)) {//POR SI NO LLEGA A SER POSIBLE ABRIRLO
@@ -81,19 +83,45 @@ void MainWindow::on_botonLeer_clicked()
 
 void MainWindow::on_botonCambiar_clicked()
 {
-    cambiar = new cambiarPendiente(this);
+    //variable local que luego se desecha
+    cambiarPendiente *cambiar = new cambiarPendiente(pendientesVector, this);
+
+    connect(cambiar, &cambiarPendiente::signalActualizar,
+            this, &MainWindow::slotActualizar);
     cambiar->show();
 }
 
 void MainWindow::on_botonEliminar_clicked()
 {
-    eliminar = new eliminarPendiente(this);
+    eliminar = new eliminarPendiente(pendientesVector ,this);
+    connect(eliminar, &eliminarPendiente::signalEliminar,
+            this, &MainWindow::slotEliminar);
+
     eliminar->show();
 }
 
 //AL FINAL DE TODO===================================================
+
 void MainWindow::slotPendientes(pendientesStruct vainaVolatilPendiente)
 {
     pendientesVector.push_back(vainaVolatilPendiente); //GUARDADITO EN EL VECTOR e.e
     guardarArchivo();   //SE LLAMA A LA FUNCION DE ARRIBITA
+}
+
+void MainWindow::slotActualizar(vector<pendientesStruct> pendientesActualizados)
+{
+    pendientesVector = pendientesActualizados;
+    guardarArchivo();
+}
+
+void MainWindow::slotEliminar(vector<pendientesStruct> nuevoVector)
+{
+    pendientesVector = nuevoVector;
+    guardarArchivo();
+}
+
+void MainWindow::on_botonFiltrar_clicked()
+{
+    filtrar = new filtrarPendiente(pendientesVector, this);
+    filtrar->show();
 }

@@ -22,6 +22,8 @@ public:
 private slots:
     void on_botonBuscar_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::leerPendientes *ui;
     std::vector<pendientesStruct> pendientesVector;

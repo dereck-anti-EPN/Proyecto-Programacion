@@ -8,6 +8,7 @@
 #include "leerpendientes.h"
 #include "cambiarpendiente.h"
 #include "eliminarpendiente.h"
+#include "filtrarpendiente.h"
 
 using namespace std; //IMPORTANTISIMO======================================
 
@@ -29,11 +30,17 @@ private slots://ACA PONER LO QUE ACCIONE A LOS SIGNALS PONER SOLO CON NOMBRE DE 
     //void on_NOMBRE DEL BOTON_clicked(); asi sabe el programa que boton habre x ventana
     void on_botonCrear_clicked();
     void slotPendientes(pendientesStruct vainaVolatilPendiente); //ESTE SLOT ACCIONA LO DEL SIGNAL============
+
     void on_botonLeer_clicked();
 
     void on_botonCambiar_clicked();
 
+    void slotActualizar(std::vector<pendientesStruct> pendientesActualizados);
+
     void on_botonEliminar_clicked();
+    void slotEliminar(std::vector<pendientesStruct> nuevoVector);
+
+    void on_botonFiltrar_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -43,6 +50,7 @@ private:
     leerPendientes *leer;
     cambiarPendiente *cambiar;
     eliminarPendiente *eliminar;
+    filtrarPendiente *filtrar;
 
     vector<pendientesStruct> pendientesVector;
 
