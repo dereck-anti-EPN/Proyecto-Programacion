@@ -2,8 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-//INCLUDES DE LOS .h=============
+
 #include <vector>
+//INCLUDES DE LOS .h=============
 #include "crearpendiente.h"
 #include "leerpendientes.h"
 #include "cambiarpendiente.h"
@@ -52,9 +53,10 @@ private:
     eliminarPendiente *eliminar;
     filtrarPendiente *filtrar;
 
-    vector<pendientesStruct> pendientesVector;
+    vector<pendientesStruct> pendientesVector;//vector declarado
 
     void guardarArchivo();
     void cargarArchivo();
+    bool noPendiente();
 };
 #endif // MAINWINDOW_H

@@ -203,6 +203,22 @@
     <string>Estado actual</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="botonSalir">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>80</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

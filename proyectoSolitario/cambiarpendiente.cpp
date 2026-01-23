@@ -57,3 +57,9 @@ void cambiarPendiente::on_botonBuscar_clicked()
         QMessageBox::warning(this, "Error", "No se encontro la ID");
     }
 }
+
+void cambiarPendiente::on_botonSalir_clicked()
+{
+    close();
+}
+

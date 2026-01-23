@@ -55,3 +55,9 @@ void leerPendientes::on_pushButton_clicked()
     QMessageBox::information(this, "Exito", "Los campos se han limpiado");
 }
 
+
+void leerPendientes::on_botonBuscar_2_clicked()
+{
+    close();
+}
+

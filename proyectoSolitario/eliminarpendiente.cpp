@@ -37,3 +37,9 @@ void eliminarPendiente::on_botonEliminar_clicked()
         QMessageBox::warning(this, "Error", "No se encontro esa ID");
     }
 }
+
+void eliminarPendiente::on_botonSalir_clicked()
+{
+    close();
+}
+

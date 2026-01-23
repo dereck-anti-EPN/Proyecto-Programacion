@@ -54,3 +54,9 @@ void filtrarPendiente::on_botonBuscar_clicked()
         QMessageBox::warning(this, "ERROR", "No existen pendientes con ese estado");
     }
 }
+
+void filtrarPendiente::on_botonBuscar_2_clicked()
+{
+    close();
+}
+

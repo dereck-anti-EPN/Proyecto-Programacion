@@ -22,6 +22,8 @@ public:
 private slots:
     void on_botonBuscar_clicked();
 
+    void on_botonBuscar_2_clicked();
+
 private:
     Ui::filtrarPendiente *ui;
     std::vector<pendientesStruct> pendientesVector;

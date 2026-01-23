@@ -29,6 +29,8 @@ private slots:
 
     void on_botonBuscar_clicked();
 
+    void on_botonSalir_clicked();
+
 private:
     Ui::cambiarPendiente *ui;
     std::vector<pendientesStruct> &pendientesVector;

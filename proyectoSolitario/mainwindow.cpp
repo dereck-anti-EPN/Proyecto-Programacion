@@ -21,16 +21,26 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_botonCrear_clicked(){
+
+void MainWindow::on_botonCrear_clicked(){ //crear=puntero
     crear = new crearPendiente(pendientesVector, this);
     connect(crear, &crearPendiente::signalPendientes,
             this, &MainWindow::slotPendientes);
     crear->show();
 }
 
+bool MainWindow::noPendiente() //funcion para cuando no existen pendientes
+{
+    if(pendientesVector.empty()){
+        QMessageBox::warning(this, "Error", "No existen pendientes registrados, primero cree uno");
+        return false;
+    }
+    return true;
+}
+
 void MainWindow::guardarArchivo() //funcion para guardar el archivo
 {
-    QFile archivito("pendientes.txt");
+    QFile archivito("pendientes.txt"); //nombre del archivo
     if (!archivito.open(QIODevice::WriteOnly | QIODevice::Text)) {//POR SI NO LLEGA A SER POSIBLE ABRIRLO
         QMessageBox::warning(this, "Error", "No fue posible abrir el archivo");
         return;
@@ -38,11 +48,11 @@ void MainWindow::guardarArchivo() //funcion para guardar el archivo
 
     QTextStream out(&archivito);
 
-    for (const pendientesStruct &p : pendientesVector) {
-        out << p.id << "|"
-            << p.responsable << "|"
-            << p.descripcion << "|"
-            << p.estado << "\n";
+    for (const pendientesStruct &i : pendientesVector) {
+        out << i.id << "|"
+            << i.responsable << "|"
+            << i.descripcion << "|"
+            << i.estado << "\n";
     }
     archivito.close();
 }
@@ -77,12 +87,18 @@ void MainWindow::cargarArchivo()
 
 void MainWindow::on_botonLeer_clicked()
 {
+    if(noPendiente() == false){
+        return;
+    }
     leer = new leerPendientes(pendientesVector, this); // this = ventana padre
     leer->show();
 }
 
 void MainWindow::on_botonCambiar_clicked()
 {
+    if(noPendiente() == false){
+        return;
+    }
     //variable local que luego se desecha
     cambiarPendiente *cambiar = new cambiarPendiente(pendientesVector, this);
 
@@ -93,11 +109,23 @@ void MainWindow::on_botonCambiar_clicked()
 
 void MainWindow::on_botonEliminar_clicked()
 {
+    if(noPendiente() == false){
+        return;
+    }
     eliminar = new eliminarPendiente(pendientesVector ,this);
     connect(eliminar, &eliminarPendiente::signalEliminar,
             this, &MainWindow::slotEliminar);
 
     eliminar->show();
+}
+
+void MainWindow::on_botonFiltrar_clicked()
+{
+    if(noPendiente() == false){
+        return;
+    }
+    filtrar = new filtrarPendiente(pendientesVector, this);
+    filtrar->show();
 }
 
 //AL FINAL DE TODO===================================================
@@ -118,10 +146,4 @@ void MainWindow::slotEliminar(vector<pendientesStruct> nuevoVector)
 {
     pendientesVector = nuevoVector;
     guardarArchivo();
-}
-
-void MainWindow::on_botonFiltrar_clicked()
-{
-    filtrar = new filtrarPendiente(pendientesVector, this);
-    filtrar->show();
 }

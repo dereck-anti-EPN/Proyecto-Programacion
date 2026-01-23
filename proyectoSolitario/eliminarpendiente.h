@@ -25,6 +25,8 @@ signals:
 private slots:
     void on_botonEliminar_clicked();
 
+    void on_botonSalir_clicked();
+
 private:
     Ui::eliminarPendiente *ui;
     std::vector<pendientesStruct> &pendientesVector;
