@@ -45,6 +45,12 @@
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="currentIndex">
+    <number>-1</number>
+   </property>
+   <property name="placeholderText">
+    <string>Seleccione</string>
+   </property>
    <item>
     <property name="text">
      <string>Pendiente</string>

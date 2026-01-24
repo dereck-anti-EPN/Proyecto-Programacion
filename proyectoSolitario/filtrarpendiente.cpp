@@ -35,6 +35,11 @@ void filtrarPendiente::on_botonBuscar_clicked()
     QString estadoBusc = ui->estadoFiltrar->currentText(); //currentText() por que es un spinbox
     bool encontrado = false;
 
+    if(ui->estadoFiltrar->currentText().isEmpty()){
+        QMessageBox::warning(this, "Error", "El estado esta vacio, llenelo e intente nuevamente");
+        return;
+    }
+
     //para que la tabla se limpie cada que se busca de nuevo
     ui->tablaFiltrar->setRowCount(0);
 
