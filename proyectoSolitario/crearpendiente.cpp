@@ -4,6 +4,7 @@
 //MIS DECLARACIONES
 #include"qmessagebox.h"
 
+//constructor que arranca todo al crearse la ventaan
 crearPendiente::crearPendiente(const std::vector<pendientesStruct> &pendientes
                                ,QWidget *parent)
     : QDialog(parent)
@@ -20,6 +21,8 @@ crearPendiente::~crearPendiente()
 
 void crearPendiente::on_botonGuardar_clicked()
 {
+    int idVentana=0;
+
     if(ui->idLinea->text().isEmpty()){ //"isEmpty()" mira si es que esta vacio o no
         QMessageBox::warning(this, "Error", "La ID esta vacia, llenela e intente nuevamente");
         return;
@@ -34,6 +37,13 @@ void crearPendiente::on_botonGuardar_clicked()
         QMessageBox::warning(this, "Error", "El resposable esta vacio, llenelo e intente nuevamente");
         return;
     }
+
+    if(ui->estadoLinea->currentText().isEmpty()){
+        QMessageBox::warning(this, "Error", "El estado esta vacio, llenelo e intente nuevamente");
+        return;
+    }
+
+    idVentana = ui->idLinea->value();
 
     for(const pendientesStruct &i : pendientesVector){
         if(ui->idLinea->value() == i.id){
@@ -50,8 +60,14 @@ void crearPendiente::on_botonGuardar_clicked()
     vainaVolatilPendiente.descripcion = ui->descLinea->toPlainText();
     vainaVolatilPendiente.estado = ui->estadoLinea->currentText();
 
+    //es un poco similar a un push back con un vector e.e
     emit signalPendientes(vainaVolatilPendiente); //EMITE LA SEÑAL
 
-    QMessageBox::information(this, "Exito", "Guardado exitosamente");
+    QMessageBox::information(this, "Exito", "Guardado exitosamente en la ID: " + QString::number(idVentana));
     this->accept(); //cierra la pestaña crear solita
+}
+
+void crearPendiente::on_botonSalir_clicked()
+{
+    close();
 }

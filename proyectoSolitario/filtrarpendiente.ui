@@ -118,6 +118,12 @@
      <family>Times New Roman</family>
     </font>
    </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>ForbiddenCursor</cursorShape>
+   </property>
+   <property name="gridStyle">
+    <enum>Qt::PenStyle::SolidLine</enum>
+   </property>
    <column>
     <property name="text">
      <string>ID</string>

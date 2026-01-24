@@ -6,8 +6,6 @@
 #include<vector>
 #include"crearpendiente.h" //aca esta el struct OJITO al PIOJITO
 
-using namespace std;
-
 namespace Ui {
 class cambiarPendiente;
 }
@@ -17,7 +15,7 @@ class cambiarPendiente : public QDialog
     Q_OBJECT
 
 public:
-    explicit cambiarPendiente(vector<pendientesStruct> &pendientes,
+    explicit cambiarPendiente(std::vector<pendientesStruct> &pendientes,
                               QWidget *parent = nullptr);
     ~cambiarPendiente();
 

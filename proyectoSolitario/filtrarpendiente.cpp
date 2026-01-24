@@ -11,13 +11,17 @@ filtrarPendiente::filtrarPendiente(const std::vector<pendientesStruct> &pendient
     pendientesVector(pendientes)
 {
     ui->setupUi(this);
-    //HEADERS
-    ui->tablaFiltrar->setColumnCount(3);
-    QStringList headers;
-    headers << "ID" << "Responsable" << "Descripcion";
-    ui->tablaFiltrar->setHorizontalHeaderLabels(headers);
 
-    //auto redimencion segun que tan grandes o pequeñas son los datos de la tabla
+    //HEADERS para la tabla
+    ui->tablaFiltrar->setColumnCount(3); //columnas (no empieza desde 0)
+    QStringList headers; //guardar el titulo de las columnas en la tabla
+    headers << "ID" << "Responsable" << "Descripcion";//titulos
+    ui->tablaFiltrar->setHorizontalHeaderLabels(headers);//utilizar los titulos que le pusimos
+    /*
+     * auto redimencion segun que tan grandes o pequeñas son los datos de la tabla
+     * solo en horizontal
+     * resize
+    */
     ui->tablaFiltrar->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 }
 
@@ -28,7 +32,7 @@ filtrarPendiente::~filtrarPendiente()
 
 void filtrarPendiente::on_botonBuscar_clicked()
 {
-    QString estadoBusc = ui->estadoFiltrar->currentText();
+    QString estadoBusc = ui->estadoFiltrar->currentText(); //currentText() por que es un spinbox
     bool encontrado = false;
 
     //para que la tabla se limpie cada que se busca de nuevo
@@ -36,13 +40,13 @@ void filtrarPendiente::on_botonBuscar_clicked()
 
     for(const pendientesStruct &i: pendientesVector){
         if(i.estado == estadoBusc){
-            //cuenta las filas actuales por iteracion
+            //cuenta las filas actuales por iteracion con rowCount()
             int fila = ui->tablaFiltrar->rowCount();
-            //pone una nueva fila vacia a la tabla
+            //pone una nueva fila vacia a la tabla con insertRow()
             ui->tablaFiltrar->insertRow(fila);
 
             //columna 0, 1 y 2 respectivamente
-            ui->tablaFiltrar->setItem(fila, 0, new QTableWidgetItem(QString::number(i.id)));
+            ui->tablaFiltrar->setItem(fila, 0, new QTableWidgetItem(QString::number(i.id)));//::number
             ui->tablaFiltrar->setItem(fila, 1, new QTableWidgetItem(i.responsable));
             ui->tablaFiltrar->setItem(fila, 2, new QTableWidgetItem(i.descripcion));
 

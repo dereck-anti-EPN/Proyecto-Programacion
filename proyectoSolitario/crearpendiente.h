@@ -6,6 +6,7 @@
 //MIS INCLUDES=============================
 #include <QString>
 
+//declaracion del struct en este .h, por eso siempre se lo incluye en el resto de .h
 struct pendientesStruct{
     QString responsable;
     int id;
@@ -14,25 +15,27 @@ struct pendientesStruct{
 };
 
 namespace Ui {
-class crearPendiente;
+class crearPendiente; //clase===========================================================================
 }
 
 class crearPendiente : public QDialog
 {
     Q_OBJECT
 
-public:
-    explicit crearPendiente(const std::vector<pendientesStruct> &pendientes
+public: //esto se usa fuera de la clase
+    explicit crearPendiente(const std::vector<pendientesStruct> &pendientes //constructor pero con =nullptr
                             ,QWidget *parent = nullptr);
     ~crearPendiente();
 
-signals:            //FUNCION DE EMITIR UNA SEÑAL Y QUE EL SLOT LO ACCIONE
+signals:            //cada que hace emit mande un nuevo pendiente
     void signalPendientes(pendientesStruct vainaVolatilPendiente);
 
-private slots:
+private slots: //solo pa slots
     void on_botonGuardar_clicked();
 
-private:
+    void on_botonSalir_clicked();
+
+private: //solo esta clase la usa
     Ui::crearPendiente *ui;
     std::vector<pendientesStruct> pendientesVector;
 };

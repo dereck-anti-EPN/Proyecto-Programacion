@@ -30,7 +30,7 @@ public:
 private slots://ACA PONER LO QUE ACCIONE A LOS SIGNALS PONER SOLO CON NOMBRE DE "SLOT"
     //void on_NOMBRE DEL BOTON_clicked(); asi sabe el programa que boton habre x ventana
     void on_botonCrear_clicked();
-    void slotPendientes(pendientesStruct vainaVolatilPendiente); //ESTE SLOT ACCIONA LO DEL SIGNAL============
+    void slotPendientes(pendientesStruct vainaVolatilPendiente); //ESTE SLOT ACCIONA LO DEL SIGNAL
 
     void on_botonLeer_clicked();
 
@@ -53,8 +53,10 @@ private:
     eliminarPendiente *eliminar;
     filtrarPendiente *filtrar;
 
-    vector<pendientesStruct> pendientesVector;//vector declarado
+    //vector declarado
+    vector<pendientesStruct> pendientesVector;
 
+    //funcioens apartes
     void guardarArchivo();
     void cargarArchivo();
     bool noPendiente();
