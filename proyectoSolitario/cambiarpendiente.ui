@@ -179,6 +179,9 @@
    <property name="readOnly">
     <bool>true</bool>
    </property>
+   <property name="placeholderText">
+    <string>Pulse en Buscar ID</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">

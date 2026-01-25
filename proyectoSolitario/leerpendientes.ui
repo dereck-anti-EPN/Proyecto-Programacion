@@ -113,6 +113,9 @@
    <property name="readOnly">
     <bool>true</bool>
    </property>
+   <property name="placeholderText">
+    <string>Seleccione la ID y pulse &quot;Buscar&quot;</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
